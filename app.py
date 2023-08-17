@@ -116,8 +116,8 @@ def load_face_swapper_model(path="./assets/pretrained_models/inswapper_128.onnx"
 def load_face_parser_model(path="./assets/pretrained_models/79999_iter.pth"):
     global FACE_PARSER
     #if FACE_PARSER is None:
-        #FACE_PARSER = init_parsing_model(path, device=device)
-#
+        FACE_PARSER = init_parsing_model(path, device=device)
+
 #def load_nsfw_detector_model(path="./assets/pretrained_models/open-nsfw.onnx"):
     global NSFW_DETECTOR
     if NSFW_DETECTOR is None:
@@ -189,7 +189,7 @@ def process(
         )
 
     start_time = time.time()
-   # total_exec_time = lambda start_time: divmod(time.time() - start_time, 60)
+   #total_exec_time = lambda start_time: divmod(time.time() - start_time, 60)
     #get_finsh_text = lambda start_time: f"✔️ Completed in {int(total_exec_time(start_time)[0])} min {int(total_exec_time(start_time)[1])} sec."
 
     ## ------------------------------ PREPARE INPUTS & LOAD MODELS ------------------------------
@@ -220,11 +220,11 @@ def process(
     sources = specifics[:half]
     specifics = specifics[half:]
     #if crop_top > crop_bott:
-        #crop_top, crop_bott = crop_bott, crop_top
-    #if crop_left > crop_right:
-      #  crop_left, crop_right = crop_right, crop_left
-    #crop_mask = (crop_top, 511-crop_bott, crop_left, 511-crop_right)
-#
+        crop_top, crop_bott = crop_bott, crop_top
+    if crop_left > crop_right:
+        crop_left, crop_right = crop_right, crop_left
+    crop_mask = (crop_top, 511-crop_bott, crop_left, 511-crop_right)
+
     #def swap_process(image_sequence):
         ## ------------------------------ CONTENT CHECK ------------------------------
 
