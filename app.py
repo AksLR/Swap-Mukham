@@ -228,14 +228,14 @@ def process(
     #def swap_process(image_sequence):
         ## ------------------------------ CONTENT CHECK ------------------------------
 
-        yield "### \n ⌛ Checking contents...", *ui_before()
-        nsfw = NSFW_DETECTOR.is_nsfw(image_sequence)
-        if nsfw:
-            message = "NSFW Content detected !!!"
-            yield f"### \n 🔞 {message}", *ui_before()
-            assert not nsfw, message
-            return False
-        EMPTY_CACHE()
+        #yield "### \n ⌛ Checking contents...", *ui_before()
+        #nsfw = NSFW_DETECTOR.is_nsfw(image_sequence)
+        #if nsfw:
+            #message = "NSFW Content detected !!!"
+            #yield f"### \n 🔞 {message}", *ui_before()
+            #assert not nsfw, message
+            #return False
+        #EMPTY_CACHE()
 
         ## ------------------------------ ANALYSE FACE ------------------------------
 
